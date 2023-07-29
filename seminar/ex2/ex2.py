@@ -6,3 +6,24 @@
 # 📌 Если при создании экземпляра передаётся только одна сторона, считаем что у нас квадрат.
 
 
+class Rectangle:
+    length: int
+    depth: int
+
+    def __init__(self, length, depth):
+        if (length is None) or (depth is None):
+            if length is not None:
+                self.length = length
+                self.depth = length
+            elif depth is not None:
+                self.length = depth
+                self.depth = depth
+        elif (length is not None) and (depth is not None):
+            self.length = length
+            self.depth = depth
+
+    def perimeter(self):
+        return (self.length + self.depth) * 2
+
+    def area(self):
+        return self.length * self.depth
