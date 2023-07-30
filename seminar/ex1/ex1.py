@@ -6,7 +6,7 @@
 import math
 
 
-class Circle:
+class Circle(object):
     __radius: int
 
     def __init__(self, radius):
