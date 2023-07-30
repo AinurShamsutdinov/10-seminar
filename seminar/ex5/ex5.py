@@ -53,5 +53,15 @@ class Fish:
         self.__weight = weight
         self.__name = name
 
-    def get_swim_speed(self):
+    def get_specific(self):
         return self.__swim_speed, self.__carnivorous
+
+
+if __name__ == "__main__":
+    bird = Bird(100, True, 20, 10, 'Sparrow')
+    mammal = Mammal(40, True, 200, 500, 'Bear')
+    fish = Fish(13, False, 50, 5, 'Karp')
+
+    print(f'{bird.get_specific() = }')
+    print(f'{mammal.get_specific() = }')
+    print(f'{fish.get_specific() = }')

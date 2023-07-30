@@ -11,7 +11,7 @@ class Animal:
     __weight: int
     __name: str
 
-    def __int__(self, height, weight, name):
+    def __init__(self, height, weight, name):
         self.__height = height
         self.__weight = weight
         self.__name = name
@@ -24,7 +24,7 @@ class Bird(Animal):
     def __init__(self, fly_speed, migrates, height, weight, name):
         self.__fly_speed = fly_speed
         self.__migrates = migrates
-        Animal(self, height, weight, name)
+        Animal.__init__(self, height, weight, name)
 
     def get_specific(self):
         return self.__fly_speed, self.__migrates
@@ -34,10 +34,10 @@ class Mammal(Animal):
     __run_speed: int
     __hibernates: bool
 
-    def __init__(self, run_speed, hybernates, height, weight, name):
+    def __init__(self, run_speed, hibernates, height, weight, name):
         self.__run_speed = run_speed
-        self.__hibernates = hybernates
-        Animal(self, height, weight, name)
+        self.__hibernates = hibernates
+        Animal.__init__(self, height, weight, name)
 
     def get_specific(self):
         return self.__run_speed, self.__hibernates
@@ -50,7 +50,17 @@ class Fish(Animal):
     def __init__(self, swim_speed, carnivorous, height, weight, name):
         self.__swim_speed = swim_speed
         self.__carnivorous = carnivorous
-        Animal(self, height, weight, name)
+        Animal.__init__(self, height, weight, name)
 
-    def get_swim_speed(self):
+    def get_specific(self):
         return self.__swim_speed, self.__carnivorous
+
+
+if __name__ == "__main__":
+    bird = Bird(100, True, 20, 10, 'Sparrow')
+    mammal = Mammal(40, True, 200, 500, 'Bear')
+    fish = Fish(13, False, 50, 5, 'Karp')
+
+    print(f'{bird.get_specific() = }')
+    print(f'{mammal.get_specific() = }')
+    print(f'{fish.get_specific() = }')
